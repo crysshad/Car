@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Car</title>
+
+
+<script src="WEB-INF/lib/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+
+<script src="js/stuff.js"></script>
+<script src="xml/response.xml"></script>
+<link href="ccs/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="https://raw.githubusercontent.com/abdmob/x2js/master/xml2json.min.js"
+	charset="ISO-8859-1"></script>
+
+
+</head>
+<body data-ng-app="CarApp" data-ng-controller="car">
+
+
+	<h1>Create your car</h1>
+
+	<Table>
+		<!-- Name -->
+		<tr>
+			<td><label>Enter name of the car:</label></td>
+			<td><input type="text" name="input" data-ng-model="name">
+			</td>
+		</tr>
+
+		<!-- Color -->
+		<tr>
+			<td><label>Select Color of the car: </label></td>
+			<td><select name="singleSelect" data-ng-model="data.color">
+					<option value="option-1">Pink</option>
+					<option value="option-2">Black</option>
+					<option value="option-2">Brown</option>
+					<option value="option-2">White</option>
+					<option value="option-2">Gray</option>
+					<option value="option-2">Blue</option>
+					<option value="option-2">Red</option>
+					<option value="option-2">Yellow</option>
+			</select></td>
+		</tr>
+
+		<!-- FuelAmount -->
+		<tr>
+			<td><label>Enter fuel amount of the car: </label></td>
+			<td><input type="text" name="input" data-ng-model="fuelamount">
+		</tr>
+
+		<!-- CarType -->
+		<tr>
+			<td><label>Enter car type:</label></td>
+			<td><input type="text" name="input" data-ng-model="cartype"></td>
+		</tr>
+	</Table>
+
+	<button>Create Car</button>
+
+	<h1>Search for your car</h1>
+
+	<input type="text" data-ng-model="search" class="search-query"
+		placeholder="Search">
+
+	<div>
+		<ol>
+			<li data-ng-repeat="car in car | filter:search">{{carDetail.name}}
+	</div>
+
+
+
+
+
+</body>
+</html>

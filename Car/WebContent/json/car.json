@@ -1,0 +1,16 @@
+[
+	{
+		"name": "SUBARU LEGACY",
+		"color": "BLUE",
+		"fuelAmount": "0",
+		"carType": "GAS"
+	},
+	{
+		"name": "TOYOTA CAMRY",
+		"color": "WHITE",
+		"fuelAmount": "10",
+		"carType": "GAS"
+	}
+]
+
+
