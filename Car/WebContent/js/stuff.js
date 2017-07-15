@@ -40,13 +40,16 @@ CarApp.controller('car', function($scope, getCar) {
 
 	function loadCar() {
 		var x2js = new X2JS();
-		getCar.getCarDetails().success(function(data) {
-			carDetail = x2js.xml_str2json(data);
+		getCar.getCarDetails().success(function(response) {
+			carDetail = x2js.xml_str2json(response);
 			console.log(carDetail.response.car);
 			$scope.carDetails = carDetail.response.car;
 		});
 	}
-});
-*/
+});*/
+
+
+
+
 
 
