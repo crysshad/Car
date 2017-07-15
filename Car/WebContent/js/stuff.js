@@ -1,6 +1,6 @@
 var CarApp = angular.module('CarApp', []);
 
-/*CarApp.controller('getCar', function($scope, $http) {
+CarApp.controller('getCar', function($scope, $http) {
 
 	$scope.color = {
 		singleSelect : null,
@@ -12,9 +12,9 @@ var CarApp = angular.module('CarApp', []);
 
 	})
 
-});*/
+});
 
-CarApp
+/*CarApp
 		.factory(
 				'getCar',
 				function($http) {
@@ -35,7 +35,7 @@ CarApp.controller('car', function($scope, getCar) {
 		option1 : 'option-1'
 	};
 	
-	$scope.carDetail = [];
+	$scope.carDetails = [];
 	loadCar();
 
 	function loadCar() {
@@ -43,7 +43,10 @@ CarApp.controller('car', function($scope, getCar) {
 		getCar.getCarDetails().success(function(data) {
 			carDetail = x2js.xml_str2json(data);
 			console.log(carDetail.response.car);
-			$scope.carDetail = carDetail.response.car;
+			$scope.carDetails = carDetail.response.car;
 		});
 	}
 });
+*/
+
+

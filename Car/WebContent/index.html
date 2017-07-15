@@ -18,7 +18,7 @@
 
 
 </head>
-<body data-ng-app="CarApp" data-ng-controller="car">
+<body data-ng-app="CarApp" data-ng-controller="getCar">
 
 
 	<h1>Create your car</h1>
@@ -61,18 +61,27 @@
 
 	<button>Create Car</button>
 
-	<h1>Search for your car</h1>
+	<h1>Car List</h1>
 
-	<input type="text" data-ng-model="search" class="search-query"
+	<!-- <input type="text" data-ng-model="search" class="search-query"
 		placeholder="Search">
 
 	<div>
 		<ol>
-			<li data-ng-repeat="car in car | filter:search">{{carDetail.name}}
-	
-	</div>
+			<li data-ng-repeat="car in getCar | filter:search">{{car.name}}
 
+			
+	</div> -->
 
+	<Table border=1>
+		<tr data-ng-repeat="car in getCar">
+			<td>{{car.name}}</td>
+			<td>{{car.color}}</td>
+			<td>{{car.fuelAmount}}</td>
+			<td>{{car.carType}}</td>
+		</tr>
+
+	</Table>
 
 
 
