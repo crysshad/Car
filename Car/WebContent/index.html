@@ -6,7 +6,8 @@
 
 
 <script src="WEB-INF/lib/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
 
 <script src="js/stuff.js"></script>
 <script src="xml/response.xml"></script>
@@ -68,6 +69,7 @@
 	<div>
 		<ol>
 			<li data-ng-repeat="car in car | filter:search">{{carDetail.name}}
+				{{carDetail.color}} {{carDetail.fuelAmount}} {{carDetail.carType}}
 	</div>
 
 
