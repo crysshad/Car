@@ -68,26 +68,34 @@
 
 	<h1>Car List</h1>
 
-	<!-- <input type="text" data-ng-model="search" class="search-query"
+	<input type="text" data-ng-model="search" class="search-query"
 		placeholder="Search">
+	<div data-ng-show="search.length>=2">
 
-	<div>
-		<ol>
-			<li data-ng-repeat="car in getCar | filter:search">{{car.name}}
+		<Table border=1 data-ng-repeat="car in getCar | filter:search">
+			<tr>
+				<td>{{car.name}}</td>
+				<td>{{car.color}}</td>
+				<td>{{car.fuelAmount}}</td>
+				<td>{{car.carType}}</td>
+			</tr>
 
-			
-	</div> -->
+		</Table>
 
-	<Table border=1>
-		<tr data-ng-repeat="car in getCar">
-			<td>{{car.name}}</td>
-			<td>{{car.color}}</td>
-			<td>{{car.fuelAmount}}</td>
-			<td>{{car.carType}}</td>
-		</tr>
+	</div>
 
-	</Table>
 
+<!-- 
+		<Table border=1 data-ng-repeat="car in carDetails">
+			<tr>
+				<td>{{car.name}}</td>
+				<td>{{car.color}}</td>
+				<td>{{car.fuelAmount}}</td>
+				<td>{{car.carType}}</td>
+			</tr>
+
+		</Table>
+ -->
 
 
 </body>
