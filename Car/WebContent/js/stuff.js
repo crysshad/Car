@@ -6,18 +6,17 @@ CarApp.controller('getCar', function($scope, $http) {
 		singleSelect : null,
 		option1 : 'option-1'
 	};
-	
-	
-	
+
 	$http.get('json/car.json').success(function(response) {
 		$scope.getCar = response;
 
 	})
-
+	
 	$http.get('json/createCar.json').success(function(response) {
 		$scope.createCar = response;
 
 	})
+
 });
 
 /*CarApp
