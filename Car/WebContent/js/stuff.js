@@ -16,10 +16,31 @@ CarApp.controller('getCar', function($scope, $http) {
 		$scope.createCar = response;
 
 	})
-	
-	
-	
-	
+
+	$(window)
+			.load(
+					function() {
+						var x2js = new X2JS();
+						function convertXml2JSon() {
+							$("#jsonArea").val(
+									JSON.stringify(x2js.xml_str2json($(
+											"#xmlArea").val())));
+						}
+
+						function convertJSon2XML() {
+							$("#xmlArea").val(
+									x2js.json2xml_str($
+											.parseJSON($("#jsonArea").val())));
+						}
+
+						$("#xmlArea")
+								.val(
+										"<root><child><textNode>First &amp; Child</textNode></child><child><textNode>Second Child</textNode></child><testAttrs attr1='attr1Value'/></root>");
+						convertXml2JSon();
+						convertJSon2XML();
+						$("#convertToJsonBtn").click(convertXml2JSon);
+						$("#convertToXmlBtn").click(convertJSon2XML);
+					});
 
 });
 

@@ -9,51 +9,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
 
 <script src="js/stuff.js"></script>
-<script src="xml/response.xml"></script>
-<link href="ccs/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript"
-	src="https://raw.githubusercontent.com/abdmob/x2js/master/xml2json.min.js"
-	charset="ISO-8859-1"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 
-<script src="js/xml2json.js"></script>
-<script>
-	function soapRequest() {
-		var str = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://dau.lam.net/service">
-			   <soapenv:Header/>
-		   <soapenv:Body >
-		      <sch:getCarsRequest>
-		         <!-- <name>Hummer H3</name> -->
-		      </sch:getCarsRequest>
-		   </soapenv:Body>
-		</soapenv:Envelope>';
-		function createCORSRequest(method, url) {
-			var xhr = new XMLHttpRequest();
-			if ("withCredentials" in xhr) {
-				xhr.open(method, url, false);
-			} else if (typeof XDomainRequest != "undefined") {
-				alert
-				xhr = new XDomainRequest();
-				xhr.open(method, url);
-			} else {
-				console.log("CORS not supported");
-				alert("CORS not supported");
-				xhr = null;
-			}
-			return xhr;
-		}
-		var xhr = createCORSRequest("POST", "");
-		if (!xhr) {
-			console.log("XHR issue");
-			return;
-		}
-		xhr.onload = function() {
-			var results = xhr.responseText;
-			console.log(results);
-		}
-		xhr.setRequestHeader('Content-Type', 'text/xml');
-		xhr.send(str);
-	}
-</script>
+<script type='text/javascript'
+	src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script type='text/javascript' src="js/xml2json.js"></script>
+
 
 </head>
 <body data-ng-app="CarApp" data-ng-controller="getCar">
@@ -121,9 +82,18 @@
 
 	</div>
 
-<input type="button" value="SOAP Request" onclick="soapRequest();" />
+	<h1>X2JS Demo</h1>
+	<button id="convertToJsonBtn">XML => JSON</button>
+	<button id="convertToXmlBtn">JSON => XML</button>
+	<div>
+		<h4>XML:</h4>
+		<textarea id="xmlArea" cols="55" rows="15"></textarea>
+	</div>
 
-
+	<div>
+		<h4>JSON:</h4>
+		<textarea id="jsonArea" cols="55" rows="15"></textarea>
+	</div>
 
 </body>
 </html>
