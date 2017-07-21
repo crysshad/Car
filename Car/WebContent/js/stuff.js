@@ -1,6 +1,20 @@
 var CarApp = angular.module('CarApp', []);
 
-CarApp.controller('getCar', function($scope, $http) {
+CarApp
+.factory(
+		'Car',
+		function($http) {
+			var factory = [];
+
+			factory.getCarDetails = function() {
+				return $http
+						.get("xml/response.xml");
+			}
+
+			return factory;
+		});
+
+CarApp.controller('getCar', function($scope, $http,Car) {
 
 	$scope.color = {
 		singleSelect : null,
@@ -16,7 +30,26 @@ CarApp.controller('getCar', function($scope, $http) {
 		$scope.createCar = response;
 
 	})
+	
+	
+	
+	
+	$scope.carDetails = [];
+	loadCar();
 
+	function loadCar() {
+		var x2js = new X2JS();
+		Car.getCarDetails().success(function(response) {
+			carDetail = x2js.xml_str2json(response);
+		/*	console.log(carDetail.Envelope.Header.Body.GetCarsResponse.car);
+			$scope.carDetails = carDetail.Envelope.Header.Body.GetCarsResponse.car;*/
+			
+			console.log(carDetail.response.car);
+			$scope.carDetails = carDetail.response.car;
+		});
+	}
+	
+/*
 	$(window)
 			.load(
 					function() {
@@ -35,48 +68,14 @@ CarApp.controller('getCar', function($scope, $http) {
 
 						$("#xmlArea")
 								.val(
-										"<root><child><textNode>First &amp; Child</textNode></child><child><textNode>Second Child</textNode></child><testAttrs attr1='attr1Value'/></root>");
+										"<response><car><name>SUBARU LEGACY</name><color>BLUE</color><fuelAmount>0</fuelAmount><carType>GAS</carType></car><car><name>TOYOTA CAMRY</name><color>WHITE</color><fuelAmount>10</fuelAmount><carType>GAS</carType></car></response>");
 						convertXml2JSon();
 						convertJSon2XML();
 						$("#convertToJsonBtn").click(convertXml2JSon);
 						$("#convertToXmlBtn").click(convertJSon2XML);
-					});
+					});*/
 
 });
-
-/*CarApp
-		.factory(
-				'getCar',
-				function($http) {
-					var factory = [];
-
-					factory.getCarDetails = function() {
-						return $http
-								.get("xml/response.xml");
-					}
-
-					return factory;
-				});
-
-CarApp.controller('car', function($scope, getCar) {
-
-	$scope.color = {
-		singleSelect : null,
-		option1 : 'option-1'
-	};
-	
-	$scope.carDetails = [];
-	loadCar();
-
-	function loadCar() {
-		var x2js = new X2JS();
-		getCar.getCarDetails().success(function(response) {
-			carDetail = x2js.xml_str2json(response);
-			console.log(carDetail.response.car);
-			$scope.carDetails = carDetail.response.car;
-		});
-	}
-});*/
 
 
 
