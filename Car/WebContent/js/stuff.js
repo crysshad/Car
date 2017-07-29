@@ -35,23 +35,20 @@ CarApp.controller('Car', function($scope, $http, GetCar, CreateCar) {
 		option1 : 'option-1'
 	};
 
-	$http.get('json/car.json').success(function(response) {
-		$scope.getCar = response;
-
-	})
-
-	$http.get('json/createCar.json').success(function(response) {
-		$scope.createCar = response;
-
-	})
+	/*
+	 * $http.get('json/car.json').success(function(response) { $scope.getCar =
+	 * response;
+	 *  })
+	 * 
+	 * $http.get('json/createCar.json').success(function(response) {
+	 * $scope.createCar = response;
+	 *  })
+	 */
 
 	$scope.carDetails = [];
 	$scope.createCars;
-	
-	
 
 	car();
-	
 
 	function car() {
 		var x2js = new X2JS();
@@ -61,12 +58,13 @@ CarApp.controller('Car', function($scope, $http, GetCar, CreateCar) {
 			console.log(carDetail.response.car);
 			$scope.carDetails = carDetail.response.car;
 		});
-		
+
 		CreateCar.responseMsg().success(function(response) {
 			createcar = x2js.xml_str2json(response);
 			console.log(createcar.response);
 			$scope.createCars = createcar.response;
 		});
+
 	}
 
 });
