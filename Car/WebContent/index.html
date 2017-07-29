@@ -60,9 +60,11 @@
 
 
 	<button data-ng-click="showme=true">Create Car</button>
-	<p data-ng-show="showme" data-ng-repeat="car in createCarResponse">{{car.respMsg}}</p>
+	<p data-ng-show="showme">{{createCars.respMsg}}</p>
+	
 
-
+	
+	
 
 	<h1>Car List</h1>
 
