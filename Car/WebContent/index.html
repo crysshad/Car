@@ -17,7 +17,7 @@
 
 
 </head>
-<body data-ng-app="CarApp" data-ng-controller="getCar">
+<body data-ng-app="CarApp" data-ng-controller="Car">
 
 
 	<h1>Create your car</h1>
@@ -60,7 +60,7 @@
 
 
 	<button data-ng-click="showme=true">Create Car</button>
-	<p data-ng-show="showme" data-ng-repeat="car in createCar">{{car.respMsg}}</p>
+	<p data-ng-show="showme" data-ng-repeat="car in createCarResponse">{{car.respMsg}}</p>
 
 
 
@@ -81,19 +81,6 @@
 		</Table>
 
 	</div>
-<!-- 
-	<h1>X2JS Demo</h1>
-	<button id="convertToJsonBtn">XML => JSON</button>
-	<button id="convertToXmlBtn">JSON => XML</button>
-	<div>
-		<h4>XML:</h4>
-		<textarea id="xmlArea" cols="55" rows="15"></textarea>
-	</div>
-
-	<div>
-		<h4>JSON:</h4>
-		<textarea id="jsonArea" cols="55" rows="15"></textarea>
-	</div> -->
 
 </body>
 </html>
